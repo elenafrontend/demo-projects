@@ -2,18 +2,20 @@ class Products {
 
   render () {
     let htmlCatalogList = '';
-    CATALOG.forEach(({ id, name, img, price }) => {
+    CATALOG.forEach(({ name, img, price }) => {
       htmlCatalogList += `
-        <li>
-          <h2>${name}</h2>
-          <img src="${img}" alt="${name} photo">
-          <span>${price}</span>
+        <li class="products-item">
+          <h2 class="products-item__title">${name}</h2>
+          <div class="products-item__img">
+            <img class="img" src="${img}" alt="${name} photo">
+          </div>
+          <span class="products-item__price">${price}</span>
         </li>
       `
     });
 
     const htmlCatalog = `
-      <ul>
+      <ul class="products__list list-reset">
         ${htmlCatalogList}
       </ul>
     `;

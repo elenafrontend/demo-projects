@@ -27,18 +27,18 @@ const CATALOG = [
     id: 'el5',
     name: 'Ноутбук ASUS Zenbook 13 OLED UX325EA-KG703WX',
     img: 'https://raw.githubusercontent.com/elenafrontend/js-projects/js_simple/js_simple/img/catalog/ASUS_Zenbook_13_OLED_UX325EA-KG703W.webp',
-    price: 64999
+    price: 87999
   },
   {
     id: 'el6',
     name: 'Ноутбук для бизнеса ASUS ExpertBook B9 B9400CEA-KC0116T',
     img: 'https://raw.githubusercontent.com/elenafrontend/js-projects/js_simple/js_simple/img/catalog/ASUS_ExpertBook_B9%20B9400CEA-KC0116T.webp',
-    price: 64999
+    price: 75999
   },
   {
     id: 'el7',
     name: 'Ноутбук игровой HP Victus 16-e0145u',
     img: 'https://raw.githubusercontent.com/elenafrontend/js-projects/js_simple/js_simple/img/catalog/HP_Victus_16-e0145u.webp',
-    price: 64999
+    price: 59999
   },
 ]

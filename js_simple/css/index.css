@@ -133,3 +133,14 @@ body {
     object-fit: contain;
     vertical-align: middle;
 }
+
+.img-responsive {
+    position: relative;
+    padding-bottom: 80%;
+}
+
+.img-responsive .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

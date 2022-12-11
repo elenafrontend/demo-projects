@@ -7,7 +7,7 @@ class Products {
         <li class="products-item">
           <div class="products-item__wrapper">
             <h2 class="products-item__title">${name}</h2>
-            <div class="products-item__img">
+            <div class="products-item__img img-responsive">
               <img class="img" src="${img}" alt="${name} photo">
             </div>
             <span class="products-item__price">${price}</span>

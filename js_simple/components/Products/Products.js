@@ -10,8 +10,10 @@ class Products {
             <div class="products-item__img img-responsive">
               <img class="img" src="${img}" alt="${name} photo">
             </div>
-            <span class="products-item__price">${price}</span>
-            <button class="products-item__btn button">Добавить в корзину</button>
+            <div class="products-item__info">
+              <span class="products-item__price">${price.toLocaleString('ru-Ru')} &#8381;</span>
+              <button class="products-item__btn button">В корзину</button>
+            </div>
           </div>
         </li>
       `

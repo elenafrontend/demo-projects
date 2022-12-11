@@ -1,5 +1,5 @@
 :root {
-    --padding-item: 20px;
+    --padding-item: 30px 24px;
 }
 
 .products__list {
@@ -55,11 +55,12 @@
 }
 
 .products-item__wrapper > *:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .products-item__title {
     flex-grow: 1;
+    margin: 0;
     font-size: var(--font-size_l);
     font-weight: var(--font-weight_regular);
     line-height: calc(24px / var(--font-size_l));
@@ -69,10 +70,17 @@
     overflow: hidden;
 }
 
+.products-item__info {
+    display: flex;
+    align-items: center;
+}
+
 .products-item__price {
+    margin-right: 10px;
+    font-size: var(--font-size_l);
+    font-weight: var(--font-weight_bold);
 }
 
 .products-item__btn {
-    align-self: center;
-    cursor: pointer;
+    margin-left: auto;
 }

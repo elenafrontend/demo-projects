@@ -12,7 +12,7 @@ class Products {
             </div>
             <div class="products-item__info">
               <span class="products-item__price">${price.toLocaleString('ru-Ru')} &#8381;</span>
-              <button class="products-item__btn button">В корзину</button>
+              <button class="products-item__btn button button_primary">В корзину</button>
             </div>
           </div>
         </li>

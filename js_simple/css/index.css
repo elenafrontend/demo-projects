@@ -3,7 +3,7 @@
     --radius-base:                           8px;
     --radius-btn:                            4px;
     --transition-time:                       0.5s;
-    --button-padding:                      0 24px;
+    --btn-padding:                           0 24px;
 
     /* Colors */
     --color-white:                           #ffffff;
@@ -11,15 +11,18 @@
     --color-primary:                         #1a73e8;
     --color-primary_hover:                   #1765cc;
     --color-primary_active:                  #185abc;
+    --color-secondary:                       #e8f0fe;
     --color-black:                           #1a191d;
     --color-grey_dark:                       #77767b;
-    --color-silver:                          #e0dfe1;
+    --color-silver:                          #dadce0;
 
     --border-color:                          var(--color-grey);
     --text-color_black:                      var(--color-black);
     --text-color_white:                      var(--color-white);
     --text-color_grey:                       var(--color-grey_dark);
-    --button-color_primary:                  var(--color-primary);
+    --btn-color_primary:                     var(--color-primary);
+    --btn-border-color:                      var(--color-silver);
+    --btn-box-shadow:                        0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
 
     /* Font */
     --font-main:                             'Source Sans Pro', 'Verdana', sans-serif;
@@ -69,13 +72,11 @@ h1, h2, h3, h4, h5, h6 {
 .button {
     -moz-appearance: none;
     -webkit-appearance: none;
-    background: var(--button-color_primary);
     border: 0;
     border-radius: var(--radius-btn,4px);
     box-shadow: none;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    color: var(--text-color_white);
     cursor: pointer;
     display: inline-block;
     font: inherit;
@@ -84,31 +85,51 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 36px;
     outline: 0;
     overflow: hidden;
-    padding: var(--button-padding,0 16px);
+    padding: var(--btn-padding,0 16px);
     text-align: center;
     text-decoration: none;
     text-overflow: ellipsis;
+    background: transparent;
     -webkit-transition: background-color .2s,border .2s,box-shadow .2s;
     transition: background-color .2s,border .2s,box-shadow .2s;
     vertical-align: middle;
     white-space: nowrap;
 }
 
-.button:hover,
-.button:focus,
-.button:active {
-    box-shadow:
-            0 1px 2px 0 rgba(60,64,67,.3),
-            0 1px 3px 1px rgba(60,64,67,.15);
+.button_primary {
+    color: var(--text-color_white);
+    background: var(--btn-color_primary);
 }
 
-.button:hover,
-.button:focus {
+.button_primary:hover,
+.button_primary:focus {
     background-color: var(--color-primary_hover);
 }
 
-.button:active {
+.button_primary:active {
     background-color: var(--color-primary_active);
+}
+
+.button_secondary {
+    border: 1px solid var(--btn-border-color);
+    color: var(--color-primary);
+}
+
+.button_secondary:focus,
+.button_secondary:hover {
+    background-color: var(--color-secondary);
+}
+
+.button_secondary:active {
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-secondary);
+}
+
+.button_primary:hover,
+.button_primary:focus,
+.button_primary:active,
+.button_secondary:active {
+    box-shadow: var(--btn-box-shadow);
 }
 
 /* ----------- Utils ----------- */

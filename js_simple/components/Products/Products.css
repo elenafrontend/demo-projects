@@ -70,7 +70,7 @@
     overflow: hidden;
 }
 
-.products-item__info {
+.products-item__btn-block {
     display: flex;
     align-items: center;
 }

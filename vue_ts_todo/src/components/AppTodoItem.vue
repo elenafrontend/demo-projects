@@ -1,16 +1,13 @@
 <script lang="ts">
-import {defineComponent, PropType} from 'vue'
+import { defineComponent, PropType } from 'vue'
+import {Todo} from "@/types/todo";
 
 export default defineComponent({
   name: "AppTodoItem",
 
   props: {
     todo: {
-      type: Object as PropType<{
-        id: number,
-        text: string
-        done: boolean,
-      }>,
+      type: Object as PropType<Todo>,
       required: true,
     }
   }

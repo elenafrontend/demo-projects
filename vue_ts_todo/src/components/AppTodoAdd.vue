@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Todo } from "@/types/todo";
+import { ITodo } from "@/types";
 
 interface State {
   isFormVisible: boolean;
@@ -36,7 +36,7 @@ export default defineComponent({
   },
 
   emits: {
-    addTodo: (todo: Todo) => todo,
+    addTodo: (todo: ITodo) => todo,
   },
 });
 </script>

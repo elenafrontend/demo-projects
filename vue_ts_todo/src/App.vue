@@ -21,10 +21,10 @@ import AppFilters from "@/components/AppFilters.vue";
 import AppTodoList from "@/components/AppTodoList.vue";
 import AppTodoAdd from "@/components/AppTodoAdd.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import { Todo } from "@/types/todo";
+import { ITodo } from "@/types";
 
 interface State {
-  todos: Todo[];
+  todos: ITodo[];
 }
 
 export default defineComponent({
@@ -47,19 +47,19 @@ export default defineComponent({
   },
 
   methods: {
-    addTodo(todo: Todo) {
+    addTodo(todo: ITodo) {
       this.todos.push(todo);
     },
 
     toggleTodo(id: number) {
-      const activeTodo = this.todos.find((todo: Todo) => todo.id === id);
+      const activeTodo = this.todos.find((todo: ITodo) => todo.id === id);
       if (activeTodo) {
         activeTodo.done = !activeTodo.done;
       }
     },
 
     deleteTodo(id: number) {
-      this.todos = this.todos.filter((todo: Todo) => todo.id !== id);
+      this.todos = this.todos.filter((todo: ITodo) => todo.id !== id);
     },
   },
 });

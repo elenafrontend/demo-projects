@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import AppTodoItem from "@/components/AppTodoItem.vue";
-import { Todo } from "@/types/todo";
+import { ITodo } from "@/types";
 
 export default defineComponent({
   name: "AppTodoList",
@@ -10,7 +10,7 @@ export default defineComponent({
 
   props: {
     todos: {
-      type: Array as PropType<Todo[]>,
+      type: Array as PropType<ITodo[]>,
     },
   },
 

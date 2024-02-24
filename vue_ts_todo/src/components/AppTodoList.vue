@@ -28,6 +28,10 @@ export default defineComponent({
         activeTodo.done = !activeTodo.done;
       }
     },
+
+    deleteTodo(id: number) {
+      this.todos = this.todos.filter((todo: Todo) => todo.id !== id);
+    },
   },
 });
 </script>
@@ -39,6 +43,7 @@ export default defineComponent({
       :key="todo.id"
       :todo="todo"
       @toggle-todo="toggleTodo"
+      @delete-todo="deleteTodo"
     />
   </ul>
 </template>

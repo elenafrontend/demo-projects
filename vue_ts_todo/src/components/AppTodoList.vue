@@ -1,36 +1,31 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import AppTodoItem from "@/components/AppTodoItem.vue";
 import { Todo } from "@/types/todo";
 
-interface State {
-  todos: Todo[];
-}
 export default defineComponent({
   name: "AppTodoList",
 
   components: { AppTodoItem },
 
-  data(): State {
-    return {
-      todos: [
-        { id: 0, done: true, text: "Learn the basics of Vue" },
-        { id: 1, done: false, text: "Learn the basics of Typescript" },
-        { id: 2, done: false, text: "Subscribe to the channel" },
-      ],
-    };
+  props: {
+    todos: {
+      type: Array as PropType<Todo[]>,
+    },
+  },
+
+  emits: {
+    toggleTodo: (id: number) => Number.isInteger(id),
+    deleteTodo: (id: number) => Number.isInteger(id),
   },
 
   methods: {
     toggleTodo(id: number) {
-      const activeTodo = this.todos.find((todo: Todo) => todo.id === id);
-      if (activeTodo) {
-        activeTodo.done = !activeTodo.done;
-      }
+      this.$emit("toggleTodo", id);
     },
 
     deleteTodo(id: number) {
-      this.todos = this.todos.filter((todo: Todo) => todo.id !== id);
+      this.$emit("deleteTodo", id);
     },
   },
 });

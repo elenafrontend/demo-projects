@@ -1,10 +1,14 @@
 <template>
   <AppHeader />
-  <AppFilters />
+  <AppFilters
+    :filterList="filterList"
+    :active-filter="activeFilter"
+    @set-filter="setActiveFilter"
+  />
 
   <main class="app-main">
     <AppTodoList
-      :todos="todos"
+      :todos="filteredTodos"
       @toggle-todo="toggleTodo"
       @delete-todo="deleteTodo"
     />
@@ -21,10 +25,12 @@ import AppFilters from "@/components/AppFilters.vue";
 import AppTodoList from "@/components/AppTodoList.vue";
 import AppTodoAdd from "@/components/AppTodoAdd.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import { ITodo } from "@/types";
+import { ITodo, TFilter } from "@/types";
 
 interface State {
   todos: ITodo[];
+  filterList: TFilter[];
+  activeFilter: TFilter;
 }
 
 export default defineComponent({
@@ -43,7 +49,23 @@ export default defineComponent({
         { id: 1, done: false, text: "Learn the basics of Typescript" },
         { id: 2, done: false, text: "Subscribe to the channel" },
       ],
+      filterList: ["All", "Active", "Done"],
+      activeFilter: "All",
     };
+  },
+
+  computed: {
+    filteredTodos(): ITodo[] {
+      switch (this.activeFilter) {
+        case "Active":
+          return this.todos.filter((todo) => !todo.done);
+        case "Done":
+          return this.todos.filter((todo) => todo.done);
+        case "All":
+        default:
+          return this.todos;
+      }
+    },
   },
 
   methods: {
@@ -60,6 +82,10 @@ export default defineComponent({
 
     deleteTodo(id: number) {
       this.todos = this.todos.filter((todo: ITodo) => todo.id !== id);
+    },
+
+    setActiveFilter(filter: TFilter) {
+      this.activeFilter = filter;
     },
   },
 });

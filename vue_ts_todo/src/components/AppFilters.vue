@@ -1,18 +1,45 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from "vue";
+import { TFilter } from "@/types";
 
 export default defineComponent({
-  name: "AppFilters"
-})
+  name: "AppFilters",
+
+  props: {
+    filterList: {
+      type: Array as PropType<TFilter[]>,
+      required: true,
+    },
+    activeFilter: {
+      type: String as PropType<TFilter>,
+      required: true,
+    },
+  },
+
+  emits: {
+    setFilter: (filter: TFilter) => filter,
+  },
+
+  methods: {
+    setFilter(filter: TFilter) {
+      this.$emit("setFilter", filter);
+    },
+  },
+});
 </script>
 
 <template>
   <aside class="app-filters">
     <section class="toggle-group">
-      <button class="button button--primary">All</button>
-      <button class="button">Active</button>
-      <button class="button">Done</button>
+      <button
+        v-for="filter in filterList"
+        :key="filter"
+        class="button"
+        :class="{ 'button--primary': filter === activeFilter }"
+        @click="setFilter(filter)"
+      >
+        {{ filter }}
+      </button>
     </section>
   </aside>
 </template>
-

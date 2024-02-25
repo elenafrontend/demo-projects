@@ -5,3 +5,8 @@ export interface ITodo {
   text: string;
   done: boolean;
 }
+
+export interface IStats {
+  active: number;
+  done: number;
+}

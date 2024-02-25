@@ -15,7 +15,7 @@
     <AppTodoAdd @add-todo="addTodo" />
   </main>
 
-  <AppFooter />
+  <AppFooter :stats="stats" />
 </template>
 
 <script lang="ts">
@@ -25,7 +25,7 @@ import AppFilters from "@/components/AppFilters.vue";
 import AppTodoList from "@/components/AppTodoList.vue";
 import AppTodoAdd from "@/components/AppTodoAdd.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import { ITodo, TFilter } from "@/types";
+import { IStats, ITodo, TFilter } from "@/types";
 
 interface State {
   todos: ITodo[];
@@ -58,13 +58,28 @@ export default defineComponent({
     filteredTodos(): ITodo[] {
       switch (this.activeFilter) {
         case "Active":
-          return this.todos.filter((todo) => !todo.done);
+          return this.activeTodos;
         case "Done":
-          return this.todos.filter((todo) => todo.done);
+          return this.doneTodos;
         case "All":
         default:
           return this.todos;
       }
+    },
+
+    doneTodos(): ITodo[] {
+      return this.todos.filter((todo) => todo.done);
+    },
+
+    activeTodos(): ITodo[] {
+      return this.todos.filter((todo) => !todo.done);
+    },
+
+    stats(): IStats {
+      return {
+        active: this.activeTodos.length,
+        done: this.doneTodos.length,
+      };
     },
   },
 
